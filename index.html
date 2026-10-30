@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CampusNotes - Student Note Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <h1 class="app-title">CampusNotes <span class="subtitle">CSE25303</span></h1>
+      <p class="app-tagline">Organize your academic notes by subject.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Add Note Form -->
+    <section class="card add-note-card">
+      <h2 class="card-title">Add a New Note</h2>
+      <form id="note-form" novalidate>
+        <div class="form-group">
+          <label for="note-title">Note Title <span class="required">*</span></label>
+          <input
+            type="text"
+            id="note-title"
+            name="title"
+            placeholder="e.g. Database Normalization"
+            required
+            maxlength="100"
+          />
+          <span class="error" id="title-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="note-subject">Subject <span class="required">*</span></label>
+          <select id="note-subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="English">English</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="error" id="subject-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="note-content">Content <span class="required">*</span></label>
+          <textarea
+            id="note-content"
+            name="content"
+            placeholder="Write your notes here..."
+            required
+            maxlength="2000"
+            rows="6"
+          ></textarea>
+          <span class="error" id="content-error"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary" id="save-btn">Save Note</button>
+          <button type="button" class="btn btn-outline" id="clear-btn">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Notes List -->
+    <section class="card notes-card">
+      <div class="card-header">
+        <h2 class="card-title">My Notes <span id="notes-count" class="badge">0</span></h2>
+        <div class="controls">
+          <label class="filter-label">Filter by subject:</label>
+          <select id="filter-subject">
+            <option value="">All Subjects</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Physics">Physics</option>
+            <option value="English">English</option>
+            <option value="Other">Other</option>
+          </select>
+          <input
+            type="text"
+            id="search-notes"
+            placeholder="Search notes..."
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <div id="empty-state" class="empty-state hidden">
+        <p>No notes yet. Add your first note above!</p>
+      </div>
+
+      <ul id="notes-list" class="notes-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="container">
+      <p>CampusNotes &mdash; Version Control System (CSE25303) Assignment-2</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
