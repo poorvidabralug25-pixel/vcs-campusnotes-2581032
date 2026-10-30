@@ -118,6 +118,12 @@
     }
     notes = notes.filter((n) => n.id !== id);
     persist();
+    // If the note being edited was deleted, exit edit mode.
+    if (editingId === id) {
+      noteForm.reset();
+      editingId = null;
+      saveBtn.textContent = "Save Note";
+    }
     renderNotes();
   }
 
