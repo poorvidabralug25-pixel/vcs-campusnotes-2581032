@@ -1,0 +1,2 @@
+CampusNotes validation test
+Testing message validation
