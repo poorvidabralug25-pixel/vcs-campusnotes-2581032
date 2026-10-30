@@ -27,3 +27,5 @@ npm-debug.log*
 
 # Misc
 coverage/
+*.tmpgit add .gitignore
+git commit -m "chore: ignore temporary .tmp files in .gitignore"z
