@@ -36,6 +36,16 @@ vcs-campusnotes/
 
 No installation or build step is required.
 
+## Usage
+
+- **Add a note:** Fill in the title, select a subject, write the content, and click **Save Note**.
+- **Search:** Type in the search box to filter notes by title or content.
+- **Filter by subject:** Use the subject dropdown to show notes for one subject.
+- **Edit a note:** Click **Edit** on a note, make changes, and click **Update Note**.
+- **Delete a note:** Click **Delete** on a note and confirm.
+
+Notes are saved to your browser's localStorage and persist across page reloads.
+
 ## Git Workflow (Assignment-2)
 
 This project demonstrates the following Git and GitHub workflows:
