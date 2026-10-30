@@ -68,9 +68,15 @@
     } else {
       createNote(noteData);
     }
-
-    noteForm.reset();
     renderNotes();
+  }
+
+  // Track the last-edited timestamp of each note.
+  function setEditedAt(id) {
+    const index = notes.findIndex((n) => n.id === id);
+    if (index === -1) return;
+    notes[index].editedAt = new Date().toISOString();
+    persist();
   }
 
   function handleClear() {
@@ -103,7 +109,7 @@
       subject: data.subject,
       content: data.content,
     };
-    persist();
+    setEditedAt(id);
   }
 
   function deleteNote(id) {
@@ -195,6 +201,7 @@
           <div class="note-title">${escapeHtml(note.title)}</div>
           <div class="note-date">
             Created ${formatDate(note.createdAt)}
+            ${note.editedAt ? `<span> • Last edited ${formatDate(note.editedAt)}</span>` : ""}
           </div>
         </div>
         <div class="note-content">${escapeHtml(note.content)}</div>
